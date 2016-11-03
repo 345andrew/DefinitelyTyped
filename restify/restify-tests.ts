@@ -107,6 +107,20 @@ function send(req: restify.Request, res: restify.Response, next: restify.Next) {
     res.headers;
     res.id === 'test';
 
+    res.redirect('/foo', next);
+    res.redirect('http://www.foo.com', next);
+    res.redirect(301, '/foo', next);
+    res.redirect({
+      hostname: 'www.foo.com',
+      pathname: '/bar',
+      port: 80,                 // defaults to 80
+      secure: true,             // sets https
+      permanent: true,
+      query: {
+        a: 1
+      }
+    }, next);
+
     res.send('hello ' + req.params.name);
     return next();
 }

@@ -301,6 +301,7 @@ interface Response extends http.ServerResponse {
     header: (key: string, value?: any) => any;
     cache: (type?: any, options?: Object) => any;
     status: (code: number) => any;
+    redirect: (arg1: number | string | any, arg2: string | Next, arg3?: Next) => any;
     send: (status?: any, body?: any, headers?: { [header: string]: string }) => any;
     json: (status?: any, body?: any, headers?: { [header: string]: string }) => any;
     code: number;
